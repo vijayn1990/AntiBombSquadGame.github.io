@@ -1,0 +1,4 @@
+1. Download the "Minesweeper game files" zip file.
+2. Extract the zipped file into desired folder.
+3. Launch "MinesweeperGame" file in any desired browser.
+4. Read the instructions on the game page to start the game.
