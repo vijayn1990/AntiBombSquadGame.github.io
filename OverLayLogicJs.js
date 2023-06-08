@@ -336,8 +336,8 @@ function clickButton(n) //method to perform click action on the tile
             
             revealAllNumbers();
             stopTimer();
-            //alert("gameover");
             
+            //Game is over, prompt if the player wants to start a new game
             if(confirm("Game over!! Do you want to play again? or review the last game"))
             {
                 resetGame();
@@ -345,6 +345,7 @@ function clickButton(n) //method to perform click action on the tile
             else
             {
                 isGameStarted=false;
+                document.getElementById("gameEmoji").src="images/gameLost.jpg";
             }            
         }
     }
@@ -362,7 +363,7 @@ function showSeconds() // Method to display show seconds in the webpage
         document.getElementById("timerBtn").innerText="Play again"; // Change the text on the button
         
         //Check with player if he/she wants to play again or review last played game
-        if(confirm("Game over!! Do you want to play again? or review the last game"))
+        if(confirm("Time up!! Do you want to play again? or review the last game"))
             {
                 resetGame();
             }
@@ -370,6 +371,7 @@ function showSeconds() // Method to display show seconds in the webpage
             {
                 document.getElementById("timerId").innerText=0; //Show remaining seconds in screen
                 isGameStarted=false;
+                document.getElementById("gameEmoji").src="images/gameLost.jpg";
             }
     }
     else
@@ -379,21 +381,25 @@ function showSeconds() // Method to display show seconds in the webpage
         {
             document.getElementById("timerId").style.backgroundColor="green";
             document.getElementById("timerId").style.color="white";
+            document.getElementById("gameEmoji").src="images/phase1.jpg";
         }
         else if(seconds>phase2)
         {
             document.getElementById("timerId").style.backgroundColor="orange";
             document.getElementById("timerId").style.color="white";
+            document.getElementById("gameEmoji").src="images/phase2.jpg";
         }
         else if(seconds>phase3)
         {
             document.getElementById("timerId").style.backgroundColor="yellow";
             document.getElementById("timerId").style.color="black";
+            document.getElementById("gameEmoji").src="images/phase3.jpg";
         }
         else
         {
             document.getElementById("timerId").style.backgroundColor="red";
             document.getElementById("timerId").style.color="white";
+            document.getElementById("gameEmoji").src="images/phase4.jpg";
         }
     }
     
@@ -549,6 +555,7 @@ function checkWinStatus() // Method to check with win status by verifying number
         else
         {
             isGameStarted=false;
+            document.getElementById("gameEmoji").src="images/gameWon.jpg";
         }
         //alert("You win!!!");
     }
